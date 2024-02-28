@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="PT_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- determina viewport da largura do device -->
+    <title>izac's pizzaria</title>
+    <!-- ICONS -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+    <!-- SWIPER -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- liink:css + enter emmet -->
+    <!-- O link que eu adiciono nessa referencia é de stylesheet -->
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <!-- classe container serve para padronizar 1 container por pagina, definindo margens, preenchimento, etc padrões -->
+        <!-- esse nav momentaneamente vai precisar da classe show -->
+        <a class="logo" href="#home">izac<span>'s pizzaria</span></a>
+        <!-- menu -->
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+            <!-- precisa do # para apontar para o id -->
+          </ul>
+          <!-- para construir esta estrutura pelo emmet "ul>li*5>a" + enter -->
+          <!-- ul é uma lista não ordenada -->
+        </div>
+        <!-- /menu -->
+        <div class="toggle icon-menu"></div>
+        <!-- emmet .open -->
+        <div class="toggle icon-close"></div>
+      </nav>
+      <!-- nav indica que dentro há elementos de navecação/click -->
+    </header>
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <!-- 1ª seção: home -->
+        <div class="container grid">
+          <div class="image">
+            <img
+              id="pizza"
+              src="https://images.unsplash.com/photo-1587085416963-22efba033dd5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="foto pizza"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">
+              Delícias Naturais: O Sabor da Natureza em Cada Fatia
+            </h2>
+            <p>
+              Uma pizzaria exclusiva em Florianópolis, especializada em
+              alimentos orgânicos
+            </p>
+            <!-- tag p para parágrafo -->
+            <a
+              class="button"
+              href="https://api.whatsapp.com/send?phone=+5554999999999&text=Ola! Gostaria de agendar um horário."
+              target="_blank"
+              >Verificar horários disponíveis</a
+            >
+            <!-- para colocar esta classe pelo emmet ".container"+enter -->
+            <!-- tag a para elemento âncora -->
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              id="pizzaiolo"
+              src="https://plus.unsplash.com/premium_photo-1663100281387-4a5c51a1b724?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHBpenphcmlhfGVufDB8fDB8fHww"
+              alt="pizzaiolo preparando pizza"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">
+              <!-- emmet = h2.title+p*3 -->
+              Sobre nós
+            </h2>
+            <p>
+              Desde o nosso início, no coração do Campeche, nossa pizzaria se
+              destaca pelo compromisso inabalável com a qualidade. Cada
+              ingrediente, cuidadosamente selecionado, reflete nosso
+              comprometimento com produtos naturais e orgânicos. Na nossa
+              cozinha, cada pizza é uma obra-prima, preparada com amor e
+              dedicação, garantindo uma experiência gastronômica única para
+              nossos clientes.
+            </p>
+            <br />
+            <!-- br para adicionar break line -->
+            <p>
+              Nossa equipe é impulsionada pela paixão pela excelência em cada
+              detalhe. Do amassar da massa ao último toque de tempero, buscamos
+              constantemente a perfeição em cada etapa do processo de preparação
+              das nossas pizzas. Nosso objetivo é superar as expectativas dos
+              clientes, proporcionando não apenas uma refeição, mas sim um
+              momento memorável de deleite gastronômico.
+            </p>
+            <br />
+            <p>
+              Além de servir pizzas excepcionais, também valorizamos nossa
+              ligação com a comunidade local. Estamos comprometidos em
+              contribuir positivamente para o bairro do Campeche, seja apoiando
+              eventos locais, utilizando ingredientes de produtores da região ou
+              promovendo práticas sustentáveis em nossa operação. Para nós, ser
+              parte ativa da comunidade é tão importante quanto servir as
+              melhores pizzas da cidade.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Serviços</h2>
+            <p class="subtitle">
+              Com mais de 10 anos no mercado, o <strong>Beautysalon</strong> já
+              conquistou clientes de inúmeros países com seus tratamentos
+              exclusivos e totalmente naturais
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-Vector"></i>
+              <h3 class="title">Terapia capilar</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Provident culpa velit iste hic quaerat iure est laboriosam dolor
+                eius nobis.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-map-pin"></i>
+              <!-- tag i para ícones -->
+              <h3 class="title">Cortes</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Provident culpa velit iste hic quaerat iure est laboriosam dolor
+                eius nobis.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-map-pin"></i>
+              <h3 class="title">Tratamentos</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Provident culpa velit iste hic quaerat iure est laboriosam dolor
+                eius nobis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- para digitar esta section pelo emmet "section.section#services>.container.grid" -->
+      </section>
+
+      <div class="divider-1"></div>
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+          <div class="testimonials swiper">
+            <div class="swiper-wrapper">
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!-- caixa especial do HTML que significa que alguém está falando algo, sem ser eu -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo coloca "aspas aberta pra esquerda left quotation" -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nihil, magnam a veritatis non ipsam nostrum atque, at qui
+                    vero laborum quisquam magni consequatur sunt quam unde neque
+                    reprehenderit dolor ipsa.
+                  </p>
+                  <cite>
+                    <img
+                      src="https://randomuser.me/api/portraits/men/62.jpg"
+                      alt="foto de Izc Zaccani"
+                    />
+                    Izac Zaccani
+                  </cite>
+                  <!-- citações de alguem que falou -->
+                </blockquote>
+              </div>
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!-- caixa especial do HTML que significa que alguém está falando algo, sem ser eu -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo coloca "aspas aberta pra esquerda left quotation" -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nihil, magnam a veritatis non ipsam nostrum atque, at qui
+                    vero laborum quisquam magni consequatur sunt quam unde neque
+                    reprehenderit dolor ipsa.
+                  </p>
+                  <cite>
+                    <img
+                      src="assets/pics/izac.jpg"
+                      alt="foto de Zaccani Izac"
+                    />
+                    Zaccani Izac
+                  </cite>
+                  <!-- citações de alguem que falou -->
+                </blockquote>
+              </div>
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!-- caixa especial do HTML que significa que alguém está falando algo, sem ser eu -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo coloca "aspas aberta pra esquerda left quotation" -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nihil, magnam a veritatis non ipsam nostrum atque, at qui
+                    vero laborum quisquam magni consequatur sunt quam unde neque
+                    reprehenderit dolor ipsa.
+                  </p>
+                  <cite>
+                    <img
+                      src="assets/pics/izacIZAC.jpg"
+                      alt="foto de Izac Izac"
+                    />
+                    Izac Izac
+                  </cite>
+                  <!-- citações de alguem que falou -->
+                </blockquote>
+              </div>
+            </div>
+            <!-- if we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a Beautysalon, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send?phone=+5554999999999&text=Ola! Gostaria de agendar um horário."
+              class="button"
+              target="_blank"
+            >
+              <!-- _blank serve para abrir uma nova página e não sair da página original, uma nova guia-->
+              <!-- para alterar o texto, utilizar href a cima -->
+              <i class="icon-whatsapp"></i>Entrar em contato</a
+            >
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-phone"></i> 54 999999999</li>
+              <!-- se alterar o telefone aqui, precisa alterar no link da API do whatsapp -->
+              <li><i class="icon-map-pin"></i> R. Julio de Castilhos</li>
+              <li><i class="icon-mail"></i> email@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+    <footer class="section">
+      <!-- FOOTER -->
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">izac<span>'s pizzaria</span></a>
+          <p>©2024 izac's pizzaria.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <!-- _blank para arir em uma nova aba -->
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank">
+            <i class="icon-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <a href="#home" class="back-top"><i class="icon-arrow-up"></i></a>
+    <!-- swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- swiper antes pois o meu main.js vai precisar dele -->
+    <!-- scrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+    <!-- emmet script:src -->
+    <!-- linka com o script do js -->
+  </body>
+</html>

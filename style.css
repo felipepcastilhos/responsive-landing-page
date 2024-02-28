@@ -1,0 +1,756 @@
+/* ========== RESET ========== */
+* {
+  margin: 0; 
+  /* espaçamento */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  /* serve para remover os "pontos", semelhantes aos inputs radios da lista do menu */
+  /* melhor deixar aqui pois já reseta todos possíveis listas */
+}
+a {
+  text-decoration: none; 
+  /* remove sublinhado textos âncoras */
+}
+
+/* ========== VARIABLES ========== */
+:root {
+  /* Coloco as variaveis das cores aqui para nos filhos poder utilizando as variaveis alterar as cores em conjunto*/
+  /* --brown1: #30220E;
+  --yellow1: #FFA724;
+  --yellow2: #FCD397;
+  --white1: #F9F9F9;
+  --white2: #FFFFFF; */
+  --header-height: 4.5rem;
+  /* collors */
+  --hue: 370;
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /* fonts */
+  /* --title-font-size: 2.25rem; */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/* ========== BASE ========== */
+html {
+  scroll-behavior: smooth; 
+  /* smooth para transitar entre telas pelo menu de forma suave ao invés de 0/1 */
+}
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font: 700 var(--title-font-size) var(--title-font);
+  /* se não achar poppins acha sans-serif */
+  color: var(--title-color);
+  /* font-weight: 950; */
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s;
+}
+/* tag <a> por padrão tem display: inline, ou seja, não recebe nem altura, nem largura que ultrapassem o tamanho do conteúdo*/
+/* display block recebe altura e a largura se adapta ao tamanho */
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+/* propriedade para quando Coloco o mouse em cima */
+ 
+.divider-1 {
+  height: 0.0625rem;
+  background: linear-gradient(
+    270deg, 
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+    /* #69B99D 0%, 
+    rgba(204, 244, 230, 0.34) 100% */
+  );
+}
+ 
+.divider-2 {
+  height: 0.0625rem;
+  background: linear-gradient(
+    270deg, 
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+/* como foi invertido as 2 linhas hsla, as cores gradientes foram espelhadas também */
+
+/* ========== LAYOUT ========== */
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  /* border: solid 1px red; */
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+  /* border: solid 1px red; */
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+  /* border: 1px solid red; */
+}
+
+.section header strong{
+  color: var(--base-color);
+}
+ 
+#header {
+  /* para converter para pixels, *16px considerando seletor :root com propriedade font-size valor de 100% */
+  border-bottom: 0.0625rem solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:100;
+  background-color: var(--body-color);
+}
+
+#header.scroll {
+  /* background: var(--base-color); */
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+  /* primeiro valor luz eixo x vindo no sentido >;segundo valor luz eixo y vindo no sentido \/; proximo valor blur; o último o spread(espalhamento da cor)*/
+} /* essa sombra será feita sem uso da classe no html, mas pelo js/por isso foi removido no html classe .scroll do #header */
+
+/* main {
+  margin-top: calc(var(--header-height) + 2rem);
+  /* função calc serve para calcular juntamente com a variável */
+  /* border: solid 10px red; 
+} */
+
+/* ========== LOGO ========== */
+.logo {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+  /* poderia colocar #header nav {} porém como só possui 1 tag nav no body posso colocar como nav, ou poderia ser nav.container {} */
+  /* nav é o container do cabeçalho, para manter padrões de margens e preenchimentos */
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  /* centraliza verticalmente */
+  justify-content: space-between;
+  /* para jogar 1 filho do nav pra esquerda e outro para direita (logo, menu), como no word justificar conteudo */
+  /* border: solid 10px red; */
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.3s;
+  /* propriedades como height, width, color, background possuem transição, exemplo "tansition: color 0.3s*/
+  position: relative;
+  /* juntamente com position absolute do pseudo after permite que acompanhe proporcionalmente o tamanho da barra */
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  /* :hover para quando passar o mouse em cima do "a" */
+  color: var(--base-color-alt);
+}
+ 
+nav ul li a::after {
+  /* pseudo-element para realizar layout após posicionar mouse sobre o elemento */
+  content: "";
+  /* todo pseudo-element preciso utilizar content que pode ser vazio */
+  width: 0%;
+  height: 2px;
+  background: var(--base-color-alt);
+
+  position: absolute;
+  /* position absolute em relação ao proximo "pai" que tiver position:relative */
+  left: 0;
+  bottom: -1.5rem;
+ 
+  transition: width 0.3s;
+  /* transitar de cima pra baixo com delay */
+}
+ 
+nav ul li a:hover::after, 
+nav ul li a.active::after{
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.3s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/* Mostrar menu */
+nav.show .menu {
+  /* nav.show está junto, o " .menu" tem espaço porque classe menu está dentro da tag nav */
+  /* para quando tiver com a classe "show", procura o menu  */
+  opacity: 1;
+  visibility: visible;
+  
+  background: var(--body-color);
+
+  height: 100vh;
+  /* 100% viewport height */
+  width: 100vw;
+ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  display: grid;
+  place-content: center;
+  /* "display:grid" permite "place-content: center", para alinhar verticalmente e horizontalmente ao centro */
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+  /* list-style: none; */
+  /* para verifiar especificidade colocar mouse sobre seletor(es) no css por exemplos neste caso "nav.show ul.grid" tem especificidade = 22, enquanto ".grid" = 10, por isso vai considerar valor de gap 4rem ao invés de 2rem */
+}
+
+/* TOGGLE MENU */
+/* toggle on > off // off > on */
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* quando usuario posiciona o mouse sobre o elemento o cursos altera*/
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+  /* TRANSICAO DE CIMA PRA BAIXO */
+
+  transition: 0.2s;
+}
+
+nav.show div.icon-close {
+  /* quando clicar */
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/* ========== HOME ========== */
+#home {
+  overflow: hidden;
+  /* background: white; */
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img{
+  /* podia acessar como #pizza */
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* position: relative habilida a linha debaixo */
+  right: 2.93rem;
+}
+ 
+#home .image img,  
+#home .image::before {
+  border-radius: 0.25rem;
+}
+/* ambos vão receber a mesma propriedade*/
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center
+}
+
+#home .text h2 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+  /* max-width: 100%; */
+}
+
+/* ========== ABOUT ========== */
+
+/* #pizzaiolo {
+  width: 100%;
+} */
+#about {
+  background: white;
+}
+#about {
+  overflow: hidden;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.39%;
+  left: -33.046%;
+  z-index: 0;
+}
+
+#about .image img{
+  /* podia acessar como #pizza */
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* position: relative habilida a linha debaixo */
+  /* right: 2.93rem; */
+}
+
+#about .image img, 
+#about .image::before {
+  border-radius: 0.25rem;
+}
+/* ambos vão receber a mesma propriedade*/
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  /* text-align: center */
+}
+
+/* ========== SERVICES ========== */
+/* #services {
+  background: white;
+} */
+
+.cards.grid {
+  gap: 1.5rem;
+  /* border: 1px solid red; */
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: .25rem .25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color)
+}
+
+.card .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ========== TESTIMONIALS ========== */
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+  border: .25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute; 
+  top: -0.4rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  /* ajusta font nomes para normal ao invés de italic */
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  /* pega objeto/imagem que está dentro da tag img e "encaixe" cobrindo todo espaço que tiver disponivel na demarcação */
+  clip-path: circle();
+  /* criar uma máscara */
+  margin-right: .5rem;
+}
+
+/* swiper */
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/* ========== CONTACT ========== */
+/* #contact {
+  background: white;
+} */
+
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+ 
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+  background: var(--base-color);
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  /* display: inline; este seria o default do .logo, por ser um elemento A*/
+  display: inline-block;
+  /* precisa por inline-block neste caso para poder utilizar margin-bottom */
+  margin-bottom: 1.5rem;
+} 
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+ 
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social {
+  margin-top: -0.75rem;
+  grid-auto-flow: column;
+  /* grid em colunas */
+  width: fit-content;
+  /* ajustar conteudo do elementro como tamanho da caixa sendo iguais */
+}
+
+footer .social a {
+  /* display: flex;
+  gap: 2rem; estas 2 linhas colocariam ambos um ao lado do outro com gap entre eles de: 2rem, mas precisaria remover o a do seletor*/
+  /* margin-right: 2rem; */
+  transition: .3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/* BACK-TOP */
+.back-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: .5rem ;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: .3s;
+  transform: translateY(100%);
+  /* transofrm é uma propriedade que aceita muitas outras propriedades, para verificar clicar "ctrl+espace" */
+}
+
+.back-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}  
+
+/* ========== MEDIA QUERIES ========== */
+/* extra large devices: 1200 > (a cima de 1200)*/
+@media (min-width: 1200px) {
+  /* reusable classes */
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  /* navigation */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;  
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /* layout */
+  main {
+    margin-top: var(--header-height);
+  }
+
+  /* home */
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+    /* order só é possível por estar dentro de uma caixa grid, ou se fosse flex */
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /* about */
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /* services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* posso flexibilizar tamanhos maior em uma posição especifica */
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* testimonials */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* contact */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /* footer*/
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
+}
+
+/* large devices: 1023 */
+@media (min-width: 1023px) {
+ 
+}
+
+/* large devices: 992 */
+@media (min-width: 992px) {
+  .root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}
+/* "at+rule" ("largura mínima") {} */
+
+/* medium devices: 767 > (geralmente tablets) */
+@media (min-width: 767px) {
+
+}
+
+/* de tablet para baixo, o responsivo feito até então já serve */
